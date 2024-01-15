@@ -118,7 +118,35 @@ F4 对导线(电压节点 Node)命名(Label Net)
 
 
 
+**4-2-5 输出log**  
 
+ctrl +L
+
+
+
+
+
+## 进阶使用
+
+### 仿真不收敛
+
+![image-20240114113823340](LTspice.assets/image-20240114113823340.png)![image-20240114113840336](LTspice.assets/image-20240114113840336.png)![image-20240114114042635](LTspice.assets/image-20240114114042635.png)
+
+### spice模型导入
+
+首先到元件官网下载spice模型，存放到自建的model_lib文件夹（路径全英文）下，解压。
+
+用ltspice打开spice.txt文件或者.lib文件
+
+打开后界面如下![LM358模型](LTspice.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dhb3lvbmdfd2FuZw==,size_16,color_FFFFFF,t_70.png)
+
+如果能找到“**.subckt**”命令，说明这就是一个子电路模型，后面紧接着就是模型名，然后是输入输出各个引脚名，如下图。复杂的模型或者某个文档中可能不止一个subckt，所以一定要找到正确的模型名。
+
+左键双击目标元件的名称选中，右键后再命令栏中选择create component 打开封装编辑界面，检查引脚命名，双击可修改引脚名称，引脚定义参考上图中的引脚定义。另外，支持自建封装，然后把原封装的引脚直接移动过去（自搜教程）。确认封装无误后ctrl +s ,软件自动生成元件模型
+
+然后即可在元件库搜索到该元件
+
+若仿真中元件无法使用，则使用 .lib 命令把下载的模型中的 .lib文件等load进入工程
 
 ## 应用
 
